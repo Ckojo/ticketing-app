@@ -1,4 +1,4 @@
-apiVersion: skaffold/v4beta4
+apiVersion: skaffold/v4beta5
 kind: Config
 build:
   artifacts:
@@ -15,6 +15,5 @@ build:
 manifests:
   rawYaml:
     - ./infra/k8s/*
-    - ./infra/k8s-dev/*
 deploy:
   kubectl: {}
