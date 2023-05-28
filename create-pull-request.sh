@@ -16,13 +16,13 @@ fi
 git push origin $branch_name
 
 # Create a new pull request using the GitHub API
-response=$(curl -L \
+curl -L \
   -X POST \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer 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"\
   -H "X-GitHub-Api-Version: 2022-11-28" \
   "https://api.github.com/repos/Ckojo/$repo/pulls" \
-  -d "{\"title\":\"$pr_title\",\"body\":\"$pr_body\",\"head\":\"$branch_name\",\"base\":\"$base_branch\"}" \)
+  -d "{\"title\":\"$pr_title\",\"body\":\"$pr_body\",\"head\":\"$branch_name\",\"base\":\"$base_branch\"}" \
 
 # Extract the pull request URL from the response
 html_url=$(echo "$response" | jq -r '.html_url')
