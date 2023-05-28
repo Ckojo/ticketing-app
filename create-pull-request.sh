@@ -25,7 +25,7 @@ curl -L \
   -d "{\"title\":\"$pr_title\",\"body\":\"$pr_body\",\"head\":\"$branch_name\",\"base\":\"$base_branch\"}" \
 
 # Extract the pull request URL from the response
-html_url=$(echo "$response" | jq -r '.html_url')
+pr_url=$($response | jq -r '.html_url')
 
 # Output the pull request URL
-echo "Pull Request URL: $html_url"
+echo "Pull request created: $pr_url"
